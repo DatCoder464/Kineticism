@@ -1,5 +1,8 @@
-package com.example.examplemod;
+package com.example.kineticism;
 
+import com.example.kineticism.registry.Blocks;
+import com.example.kineticism.registry.Items;
+import com.example.kineticism.registry.KineticismRegistrate;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -12,13 +15,14 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod("examplemod")
-public class ExampleMod
+@Mod(Kineticism.MOD_ID)
+public class Kineticism
 {
+    public static final String MOD_ID = "kineticism";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public ExampleMod()
+    public Kineticism()
     {
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -27,6 +31,10 @@ public class ExampleMod
         // Register the processIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
 
+        KineticismRegistrate.register();
+
+        Blocks.register();
+        Items.register();
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }

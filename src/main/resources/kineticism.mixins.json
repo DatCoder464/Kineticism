@@ -1,9 +1,9 @@
 {
   "required": true,
   "priority": 1100,
-  "package": "com.example.examplemod.mixin",
+  "package": "com.example.kineticism.mixin",
   "compatibilityLevel": "JAVA_16",
-  "refmap": "examplemod.refmap.json",
+  "refmap": "kineticism.refmap.json",
   "mixins": [],
   "client": [],
   "injectors": {
